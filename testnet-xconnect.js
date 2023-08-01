@@ -27,10 +27,11 @@ async function xconnect(xrpNode) {
           // this check is handy if you want to put "xconnect();" in specific calls to ensure the client is connected.
           // it can also handle/be useful if you are experiencing disconnects.
       }
+      
+      // If it's connected but we're switching nodes, disconnect.
+      if (xrpClient.isConnected()) xrpClient.disconnect();
     }
 
-  // If it's connected but we're switching nodes, disconnect.
-  if (xrpClient.isConnected()) xrpClient.disconnect();
   
     // Set as new client
   xrpClient = new xrpl.Client(xrpNode)
