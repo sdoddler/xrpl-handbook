@@ -7,4 +7,5 @@ async function ping(client){
   console.log(response);
 }
 
+//As with most examples, we will use the "xrpClient" defined in the xconnect function
 ping(xrpClient);
