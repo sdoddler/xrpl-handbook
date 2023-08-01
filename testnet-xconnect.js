@@ -1,3 +1,21 @@
+xconnect('wss://testnet.xrpl-labs.com/');
+
+/* -- Alternative Servers --
+These are public servers, if you are creating your own project, it is recommended you spin up your own submission node
+More info: https://xrpl.org/public-servers.html
+-- TESTNET --
+Ripple Testnet -        wss://s.altnet.rippletest.net:51233/
+XRPL Labs Testnet -     wss://testnet.xrpl-labs.com/
+Ripple	Devnet -        wss://s.devnet.rippletest.net:51233/
+Ripple	AMM-Devnet -    wss://amm.devnet.rippletest.net:51233/	
+-- LIVENET --
+XRP Ledger Foundation	wss://xrplcluster.com/
+                        wss://xrpl.ws/
+                        
+Ripple                  wss://s1.ripple.com/
+Ripple                  wss://s2.ripple.com/
+*/
+
 async function xconnect(xrpNode) {
     //If xrpClient is already defined
     if (typeof xrpClient !== 'undefined' && xrpClient !== null) {
@@ -18,22 +36,3 @@ async function xconnect(xrpNode) {
     await xrpClient.connect()
                 
 }
-
-
-/* -- Alternative Servers --
-These are public servers, if you are creating your own project, it is recommended you spin up your own submission node
-More info: https://xrpl.org/public-servers.html
--- TESTNET --
-Ripple Testnet -        wss://s.altnet.rippletest.net:51233/
-XRPL Labs Testnet -     wss://testnet.xrpl-labs.com/
-Ripple	Devnet -        wss://s.devnet.rippletest.net:51233/
-Ripple	AMM-Devnet -    wss://amm.devnet.rippletest.net:51233/	
--- LIVENET --
-XRP Ledger Foundation	wss://xrplcluster.com/
-                        wss://xrpl.ws/
-                        
-Ripple                  wss://s1.ripple.com/
-Ripple                  wss://s2.ripple.com/
-*/
-
-xconnect('wss://testnet.xrpl-labs.com/');
