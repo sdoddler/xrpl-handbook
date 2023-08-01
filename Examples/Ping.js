@@ -7,4 +7,4 @@ async function ping(client){
   console.log(response);
 }
 
-ping();
+ping(xrpClient);
