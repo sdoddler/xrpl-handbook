@@ -28,6 +28,10 @@ async function xconnect(xrpNode) {
           // it can also handle/be useful if you are experiencing disconnects.
       }
     }
+
+  // If it's connected but we're switching nodes, disconnect.
+  if (xrpClient.isConnected()) xrpClient.disconnect();
+  
     // Set as new client
   xrpClient = new xrpl.Client(xrpNode)
   console.log('connecting to **XRPL** ' + xrpNode);
