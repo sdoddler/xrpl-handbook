@@ -27,8 +27,5 @@ async function sendXRP(client, amount, fromSeed, destinationAddress) {
     }
 }
 
-async main(){
-await sendXRP(xrpClient, 10, "sEdVJBBrca71rovpRn1LqCZDoEDTfPe", "r4VjUgJt7HdeX3jYp8BCqmSbMkamncwcCV")
-}
 
-main();
+sendXRP(xrpClient, 10, "sEdVJBBrca71rovpRn1LqCZDoEDTfPe", "r4VjUgJt7HdeX3jYp8BCqmSbMkamncwcCV")
