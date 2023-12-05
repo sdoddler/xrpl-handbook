@@ -1,17 +1,31 @@
-async function sendXRP(client, amount, fromSeed, destinationAddress) {
+async function sendXRP(client, amount, fromSeed, destinationAddress, destinationTag = 0, memo = "") {
     var fromWallet = xrpl.Wallet.fromSeed(fromSeed);
 
     const issue_quantity = amount;
-    const send_token_tx = {
+    const send_xrp_tx= {
         "TransactionType": "Payment",
         "Account": fromWallet.address,
         "Amount": xrpl.xrpToDrops(amount),
         "Destination": destinationAddress,
-        //"DestinationTag": 1111111 -- Can be enabled as required
+    }
+
+    if (destinationTag > 0){
+        send_xrp_tx.DestinationTag = destinationTag;
+    }
+    
+    if (memo != "") {
+       var memohex = xrpl.convertStringToHex(memo)
+        send_xrp_tx.Memos =  [
+            {
+                "Memo": {
+                    "MemoData": memohex
+                }
+            }
+        ]
     }
     
     // autofill details such as the current network Fee
-    const pay_prepared = await client.autofill(send_token_tx)
+    const pay_prepared = await client.autofill(send_xrp_tx)
     
     // sign from the wallet
     const pay_signed = fromWallet.sign(pay_prepared)
