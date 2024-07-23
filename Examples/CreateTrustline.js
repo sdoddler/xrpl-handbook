@@ -4,7 +4,7 @@ async function createTrustLine(client, amount, currency, issuerAddress, walletSe
 
 // hex encode for anything that isn't 3 Characters in length.
 var formattedCurrency = currency;
-if (currency.length != 3) formattedCurrency = xrpl.convertStringToHex(currency);
+if (currency.length != 3) formattedCurrency = xrpl.convertStringToHex(currency).padEnd(40,'0');;
 
 
     // Default setting is to SetNoRipple in most circumstances - flags can have different effects read about them via xrpl.org
