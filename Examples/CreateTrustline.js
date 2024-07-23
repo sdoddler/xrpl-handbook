@@ -1,4 +1,4 @@
-async function createTrustLine(amount, currency, issuerAddress, walletSeed) {
+async function createTrustLine(amount, currency, issuerAddress, walletSeed, memo ="") {
     // Trusting Wallet
     var fromWallet = xrpl.Wallet.fromSeed(walletSeed);
 
