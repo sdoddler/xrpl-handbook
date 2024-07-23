@@ -1,4 +1,4 @@
-async function createTrustLine(amount, currency, issuerAddress, walletSeed, memo ="") {
+async function createTrustLine(client, amount, currency, issuerAddress, walletSeed, memo ="") {
     // Trusting Wallet
     var fromWallet = xrpl.Wallet.fromSeed(walletSeed);
 
@@ -44,4 +44,4 @@ if (currency.length != 3) formattedCurrency = xrpl.convertStringToHex(currency);
 }
 
 // Amount formatted as String
-createTrustLine("1337", "YAY", "r4VjUgJt7HdeX3jYp8BCqmSbMkamncwcCV", "sEdVJBBrca71rovpRn1LqCZDoEDTfPe");
+createTrustLine(xrpClient, "1337", "YAY", "r4VjUgJt7HdeX3jYp8BCqmSbMkamncwcCV", "sEdVJBBrca71rovpRn1LqCZDoEDTfPe");
