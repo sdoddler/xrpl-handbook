@@ -3,7 +3,7 @@ async function SendCurrency(client, amount, currencyCode, issueAddress, fromSeed
 
     // hex encode for anything that isn't 3 Characters in length.
     var formattedCurrency = currencyCode;
-    if (currency.length != 3) formattedCurrency = xrpl.convertStringToHex(currencyCode).padEnd(40,'0');
+    if (currencyCode.length != 3) formattedCurrency = xrpl.convertStringToHex(currencyCode).padEnd(40,'0');
     
     const send_token_tx = {
         "TransactionType": "Payment",
