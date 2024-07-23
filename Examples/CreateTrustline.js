@@ -12,7 +12,7 @@ if (currency.length != 3) formattedCurrency = xrpl.convertStringToHex(currency);
         "TransactionType": "TrustSet",
         "Account": fromWallet.address,
         "LimitAmount": {
-            "currency": currency,
+            "currency": formattedCurrency,
             "issuer": issuerAddress,
             "value": amount 
         },
